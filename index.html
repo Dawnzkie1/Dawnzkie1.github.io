@@ -24,7 +24,7 @@
       --font-display: 'Zen Kaku Gothic New', sans-serif;
       --font-mono:   'Space Mono', monospace;
     }
-
+r
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
@@ -487,6 +487,15 @@
       cursor: pointer;
     }
 
+    /* Ensure project cards used as links don't show default link styling */
+    .project-card-link,
+    .project-card-link:link,
+    .project-card-link:visited {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
     .project-card:hover {
       transform: translateY(-6px);
       border-color: var(--neon-blue);
@@ -695,46 +704,7 @@
     }
   </style>
 </head>
-<body>
-
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo">EDG<span style="color:var(--text-dim)">.</span>dev</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#goals">Goals</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-intro">
-      <div>
-        <p class="hero-tag">// BSIS Student · Information Systems</p>
-        <h1 class="hero-name">
-          Early Dawn<br>
-          <span class="accent-line">C. Gementiza</span>
-        </h1>
-        <p class="hero-sub">
-          First-year student at <span>Davao del Norte State College</span> — building a future in information systems, one line of code at a time.
-        </p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-ghost">Get In Touch</a>
-        </div>
-        <div class="hero-visual">
-          <img src="dawn_transparent.png" alt="Dawn Gementiza portrait">
-          <p class="hero-quote">"Failure is the key to success"</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
+{PATCH_REPLACED_WITH_index1}
   <section id="about">
     <div class="sec-header">
       <span class="sec-num">01</span>
@@ -924,11 +894,11 @@
           <div class="project-stack">
             <span class="stack-badge">HTML</span>
             <span class="stack-badge">CSS</span>
-            <span class="stack-badge">JavaScript</span>
+            
           </div>
         </div>
       </div>
-      <div class="project-card">
+      <a href="https://drive.google.com/drive/folders/15Ik_HN4HdWmRcA054RQUG8stZlFIyC1K?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-card project-card-link">
         <div class="project-thumb project-thumb-2">
           📊
           <div class="project-thumb-glow"></div>
@@ -938,26 +908,26 @@
           <div class="project-name">Hotel Reservation System</div>
           <div class="project-desc">A basic Reservation management system designed as a school project to practice database and system concepts such as CRUD.</div>
           <div class="project-stack">
-            <span class="stack-badge">MS Access</span>
-            <span class="stack-badge">SQL</span>
+            <span class="stack-badge">Java</span>
+            <span class="stack-badge">MySQL</span>
           </div>
         </div>
-      </div>
-      <div class="project-card">
+      </a>
+      <a href="https://drive.google.com/file/d/1TDBEntwGRsy_P4n99JZx5qY67offXeHo/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-card project-card-link">
         <div class="project-thumb project-thumb-3">
           🎨
           <div class="project-thumb-glow"></div>
         </div>
         <div class="project-body">
-          <div class="project-type">Design</div>
-          <div class="project-name">Event Poster Series</div>
-          <div class="project-desc">Designed a series of digital posters and promotional materials for school events using Canva and basic design principles.</div>
+          <div class="project-type">Basic EDITS</div>
+          <div class="project-name">Advocacy Video </div>
+          <div class="project-desc">Video editing has been one of my interests for a long time. I enjoy creating and editing videos, but I have not been fully committed to it because I sometimes lack the time to practice and work on projects consistently.</div>
           <div class="project-stack">
-            <span class="stack-badge">Canva</span>
-            <span class="stack-badge">Graphic Design</span>
+            <span class="stack-badge">Davinci Resolve</span>
+            <span class="stack-badge">Capcut</span>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
