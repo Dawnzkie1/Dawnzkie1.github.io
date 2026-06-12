@@ -279,6 +279,120 @@
       color: var(--red);
     }
 
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.65);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 200;
+    }
+
+    .modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: min(80vw, 560px);
+      width: 100%;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      border-radius: 14px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      border: none;
+      background: transparent;
+      color: var(--ink);
+      font-size: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      max-height: 90vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .project-card-button {
+      display: block;
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 0;
+      text-align: left;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .project-card-button:focus {
+      outline: 2px solid var(--red);
+      outline-offset: 3px;
+    }
+
+    .hotel-slide {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .hotel-slide img {
+      width: 100%;
+      max-height: 65vh;
+      object-fit: contain;
+      border-radius: 8px;
+      background: var(--bg2);
+    }
+
+    .hotel-slide-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-dim);
+    }
+
+    .slide-controls {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .slide-btn {
+      min-width: 42px;
+      height: 42px;
+      border: 1px solid var(--border-dark);
+      background: var(--bg2);
+      color: var(--ink);
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .slide-btn:hover {
+      background: var(--bg3);
+      border-color: var(--red);
+      color: var(--red);
+    }
+
     .hero-visual {
       display: flex;
       flex-direction: column;
@@ -585,6 +699,13 @@
       font-size: 2.2rem;
       border-bottom: 1px solid var(--border);
       background: var(--bg2);
+      overflow: hidden;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .project-body {
@@ -891,7 +1012,7 @@
 
 <body>
   <nav>
-    <div class="nav-logo">EDG.dev</div>
+    <div class="nav-logo">EDG.dev lvl.22</div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -913,6 +1034,7 @@
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View My Work</a>
       <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      <button type="button" id="resume-btn" class="btn btn-ghost">My Resume</button>
     </div>
     <div class="hero-visual">
       <img src="dawn_transparent.png" alt="Dawn Gementiza portrait">
@@ -1039,13 +1161,13 @@
         <div class="skill-bar-wrap">
           <div class="skill-bar-label"><span>HTML &amp; CSS</span><span>Learning</span></div>
           <div class="skill-bar-track">
-            <div class="skill-bar-fill" style="width:60%"></div>
+            <div class="skill-bar-fill" style="width:30%"></div>
           </div>
         </div>
         <div class="skill-bar-wrap">
           <div class="skill-bar-label"><span>Microsoft Office Suite</span><span>Familiar</span></div>
           <div class="skill-bar-track">
-            <div class="skill-bar-fill" style="width:75%"></div>
+            <div class="skill-bar-fill" style="width:50%"></div>
           </div>
         </div>
         <div class="skill-bar-wrap">
@@ -1082,18 +1204,17 @@
     </div>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-thumb">🌐</div>
+        <div class="project-thumb"><img src="final.png" alt="Personal portfolio project thumbnail"></div>
         <div class="project-body">
           <div class="project-type">Web Development</div>
           <div class="project-name">Personal Portfolio Website</div>
           <div class="project-desc">A responsive one-page portfolio built to showcase skills, projects, and goals as a
-            first-year BSIS student.</div>
+            first-year BSIS student. For Academic purpose only.</div>
           <div class="project-stack"><span class="stack-badge">HTML</span><span class="stack-badge">CSS</span></div>
         </div>
       </div>
-      <a href="https://drive.google.com/drive/folders/15Ik_HN4HdWmRcA054RQUG8stZlFIyC1K?usp=drive_link" target="_blank"
-        rel="noopener noreferrer" class="project-card project-card-link">
-        <div class="project-thumb">📊</div>
+      <button type="button" id="hotel-project-btn" class="project-card project-card-button">
+        <div class="project-thumb"><img src="room.png" alt="Hotel reservation project thumbnail"></div>
         <div class="project-body">
           <div class="project-type">Academic Project</div>
           <div class="project-name">Hotel Reservation System</div>
@@ -1101,12 +1222,12 @@
             database and system concepts such as CRUD.</div>
           <div class="project-stack"><span class="stack-badge">Java</span><span class="stack-badge">MySQL</span></div>
         </div>
-      </a>
+      </button>
       <a href="https://drive.google.com/file/d/1TDBEntwGRsy_P4n99JZx5qY67offXeHo/view?usp=drive_link" target="_blank"
         rel="noopener noreferrer" class="project-card project-card-link">
-        <div class="project-thumb">🎨</div>
+        <div class="project-thumb"><img src="video.png" alt="Video editing project thumbnail"></div>
         <div class="project-body">
-          <div class="project-type">Basic Video Edit</div>
+          <div class="project-type">Basic Video Editing</div>
           <div class="project-name">Advocacy Video</div>
           <div class="project-desc">Video editing has been one of my long-time interests. I enjoy creating videos with a
             focus on meaningful visual storytelling.</div>
@@ -1175,6 +1296,27 @@
     <div class="footer-logo">EDG.dev · DNSC · 2026</div>
     <div class="footer-right">Made with <span>♥</span> in Panabo City<br>Early Dawn C. Gementiza</div>
   </footer>
+  <div id="resume-modal" class="modal" aria-hidden="true" role="dialog" aria-label="Resume preview">
+    <div class="modal-content">
+      <button type="button" class="modal-close" aria-label="Close resume preview">×</button>
+      <img src="GEMENTIZA.jpg" alt="Preview of GEMENTIZA image">
+    </div>
+  </div>
+  <div id="hotel-modal" class="modal" aria-hidden="true" role="dialog" aria-label="Hotel reservation preview">
+    <div class="modal-content">
+      <button type="button" class="modal-close" aria-label="Close hotel preview">×</button>
+      <div class="hotel-slide">
+        <img src="HotelReservartionUI/Login Form.png" alt="Hotel Reservation login form preview">
+        <div class="hotel-slide-meta">
+          <span class="slide-counter">1 / 9</span>
+          <div class="slide-controls">
+            <button type="button" id="hotel-prev" class="slide-btn" aria-label="Previous screenshot">‹</button>
+            <button type="button" id="hotel-next" class="slide-btn" aria-label="Next screenshot">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeKey = 'earlydawn-theme';
@@ -1195,6 +1337,104 @@
     themeToggle.addEventListener('click', () => {
       setTheme(document.body.classList.contains('dark') ? 'light' : 'dark');
     });
+
+    const resumeBtn = document.getElementById('resume-btn');
+    const resumeModal = document.getElementById('resume-modal');
+    const resumeClose = resumeModal.querySelector('.modal-close');
+
+    const hotelProjectBtn = document.getElementById('hotel-project-btn');
+    const hotelModal = document.getElementById('hotel-modal');
+    const hotelClose = hotelModal.querySelector('.modal-close');
+    const hotelImage = hotelModal.querySelector('.hotel-slide img');
+    const hotelCounter = hotelModal.querySelector('.slide-counter');
+    const hotelPrev = document.getElementById('hotel-prev');
+    const hotelNext = document.getElementById('hotel-next');
+
+    const hotelSlides = [
+      { src: 'HotelReservartionUI/1. Login Form.png', alt: 'Hotel Reservation login form preview' },
+      { src: 'HotelReservartionUI/2. Guest_Registration Form.png', alt: 'Guest registration form preview' },
+      { src: 'HotelReservartionUI/3. Guest_Reservation Dashboard.png', alt: 'Guest reservation dashboard preview' },
+      { src: 'HotelReservartionUI/4. Guest_Room Catalog.png', alt: 'Guest room catalog preview' },
+      { src: 'HotelReservartionUI/5. Admin_Dashboard.png', alt: 'Admin dashboard preview' },
+      { src: 'HotelReservartionUI/6. Admin_Add Reservation.png', alt: 'Admin add reservation preview' },
+      { src: 'HotelReservartionUI/7. Admin_Search View Reservation.png', alt: 'Admin search view reservation preview' },
+      { src: 'HotelReservartionUI/8. Admin_Update, Check-in, Check-out, Reservation.png', alt: 'Admin update reservation preview' },
+      { src: 'HotelReservartionUI/9. Admin_Cancel Reservation.png', alt: 'Admin cancel reservation preview' },
+    ];
+
+    let hotelIndex = 0;
+
+    const updateHotelSlide = () => {
+      const slide = hotelSlides[hotelIndex];
+      hotelImage.src = slide.src;
+      hotelImage.alt = slide.alt;
+      hotelCounter.textContent = `${hotelIndex + 1} / ${hotelSlides.length}`;
+    };
+
+    const openResumeModal = () => {
+      resumeModal.classList.add('open');
+      resumeModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeResumeModal = () => {
+      resumeModal.classList.remove('open');
+      resumeModal.setAttribute('aria-hidden', 'true');
+    };
+
+    const openHotelModal = () => {
+      hotelIndex = 0;
+      updateHotelSlide();
+      hotelModal.classList.add('open');
+      hotelModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeHotelModal = () => {
+      hotelModal.classList.remove('open');
+      hotelModal.setAttribute('aria-hidden', 'true');
+    };
+
+    const showHotelPrev = () => {
+      hotelIndex = (hotelIndex - 1 + hotelSlides.length) % hotelSlides.length;
+      updateHotelSlide();
+    };
+
+    const showHotelNext = () => {
+      hotelIndex = (hotelIndex + 1) % hotelSlides.length;
+      updateHotelSlide();
+    };
+
+    resumeBtn.addEventListener('click', openResumeModal);
+    resumeClose.addEventListener('click', closeResumeModal);
+    resumeModal.addEventListener('click', (event) => {
+      if (event.target === resumeModal) {
+        closeResumeModal();
+      }
+    });
+
+    hotelProjectBtn.addEventListener('click', openHotelModal);
+    hotelClose.addEventListener('click', closeHotelModal);
+    hotelModal.addEventListener('click', (event) => {
+      if (event.target === hotelModal) {
+        closeHotelModal();
+      }
+    });
+
+    hotelPrev.addEventListener('click', showHotelPrev);
+    hotelNext.addEventListener('click', showHotelNext);
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        if (resumeModal.classList.contains('open')) closeResumeModal();
+        if (hotelModal.classList.contains('open')) closeHotelModal();
+      }
+      if (event.key === 'ArrowLeft' && hotelModal.classList.contains('open')) {
+        showHotelPrev();
+      }
+      if (event.key === 'ArrowRight' && hotelModal.classList.contains('open')) {
+        showHotelNext();
+      }
+    });
+
     setTheme(getPreferredTheme());
   </script>
 </body>
