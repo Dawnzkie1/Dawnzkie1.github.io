@@ -175,7 +175,7 @@
 
     /* Background animation container (replaces dnsclogo.png) */
     .hero-bg {
-      position: absolute;
+      position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
@@ -488,6 +488,14 @@
       margin-left: auto;
     }
 
+    #about {
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+      border-radius: 24px;
+    }
+
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 340px;
@@ -511,6 +519,16 @@
       background: var(--panel);
       border: 1px solid var(--border);
       padding: 1.5rem;
+      border-radius: 20px;
+    }
+
+    section#experience,
+    section#skills {
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+      border-radius: 24px;
     }
 
     .about-row {
@@ -598,14 +616,18 @@
     }
 
     .goal-card {
-      background: var(--panel);
+      background: rgba(255, 255, 255, 0.72);
       padding: 1.4rem;
-      transition: background 0.15s;
-      border-radius: 12px;
+      transition: background 0.15s, transform 0.15s;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
     }
 
     .goal-card:hover {
-      background: var(--red-pale);
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.85);
     }
 
     .goal-icon {
@@ -633,6 +655,11 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 2.5rem;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      border-radius: 24px;
     }
 
     .skill-group-title {
@@ -807,6 +834,8 @@
       flex-direction: column;
       gap: 0;
       border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
     }
 
     .contact-item {
@@ -820,8 +849,15 @@
       background: var(--panel);
     }
 
+    .contact-item:first-child {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
     .contact-item:last-child {
       border-bottom: none;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
     }
 
     .contact-item:hover {
@@ -838,6 +874,13 @@
       font-size: 1rem;
       flex-shrink: 0;
       border: 1px solid var(--border);
+    }
+
+    .contact-icon img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .contact-label {
@@ -896,6 +939,8 @@
     .form-textarea {
       min-height: 100px;
     }
+
+   
 
     footer {
       position: relative;
@@ -994,6 +1039,15 @@
       color: #f76b68;
     }
 
+    body.dark #about,
+    body.dark section#skills,
+    body.dark .goal-card,
+    body.dark .skills-grid {
+      background: rgba(20, 18, 24, 0.68);
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
     @media (max-width: 700px) {
       nav {
         padding: 0 1.2rem;
@@ -1050,7 +1104,6 @@
     <div class="nav-logo">EDG.dev lvl.22</div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
       <li><a href="#goals">Goals</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -1101,7 +1154,7 @@
         </div>
         <div class="about-row">
           <div class="about-card-label">Year Level</div>
-          <div class="about-card-value">1st Year</div>
+          <div class="about-card-value">2nd Year</div>
         </div>
         <div class="about-row">
           <div class="about-card-label">School</div>
@@ -1118,61 +1171,28 @@
       </div>
     </div>
   </section>
-  <section id="experience">
-    <div class="sec-header">
-      <span class="sec-num">02</span>
-      <h2 class="sec-title">Experience</h2>
-    </div>
-    <div class="exp-item">
-      <div class="exp-date">2026 – Present</div>
-      <div>
-        <div class="exp-role">BSIS Student</div>
-        <div class="exp-org">Davao del Norte State College · Panabo City</div>
-        <div class="exp-desc">Pursuing a Bachelor of Science in Information Systems, covering core subjects in
-          programming, systems analysis, database fundamentals, and ICT applications.</div>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-date">2024 – 2025</div>
-      <div>
-        <div class="exp-role">Senior High School Graduate</div>
-        <div class="exp-org">Panabo City Senior High School · Panabo City</div>
-        <div class="exp-desc">Completed senior high school with a focus on academic and technical subjects. Developed
-          foundational skills in computer use, research, and problem-solving.</div>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-date">Ongoing</div>
-      <div>
-        <div class="exp-role">Self-Directed Learner</div>
-        <div class="exp-org">Online Platforms · Independent</div>
-        <div class="exp-desc">Exploring web development, basic programming concepts, and digital tools through
-          self-study and online resources to complement formal education.</div>
-      </div>
-    </div>
-  </section>
   <section id="goals">
     <div class="sec-header">
       <span class="sec-num">03</span>
       <h2 class="sec-title">Goals</h2>
     </div>
     <div class="goals-grid">
-      <div class="goal-card"><span class="goal-icon">💻</span>
+      <div class="goal-card"><span class="goal-icon"></span>
         <div class="goal-title">Master Web Development</div>
         <div class="goal-desc">Learn HTML, CSS, JavaScript, and modern frameworks to build functional and beautiful web
           applications.</div>
       </div>
-      <div class="goal-card"><span class="goal-icon">🗄️</span>
+      <div class="goal-card"><span class="goal-icon"></span>
         <div class="goal-title">Database Proficiency</div>
         <div class="goal-desc">Become skilled in database design, management, and querying using SQL and modern database
           systems.</div>
       </div>
-      <div class="goal-card"><span class="goal-icon">🤝</span>
+      <div class="goal-card"><span class="goal-icon"></span>
         <div class="goal-title">Build a Network</div>
         <div class="goal-desc">Connect with fellow students, mentors, and professionals in the tech industry across the
           Philippines.</div>
       </div>
-      <div class="goal-card"><span class="goal-icon">🌏</span>
+      <div class="goal-card"><span class="goal-icon"></span>
         <div class="goal-title">Contribute to Community</div>
         <div class="goal-desc">Use technology to create meaningful solutions that benefit local communities in Mindanao
           and beyond.</div>
@@ -1277,7 +1297,7 @@
           friendly hello. I'd love to connect!</p>
         <div class="contact-items">
           <a href="mailto:dawn.early23@gmail.com" class="contact-item">
-            <div class="contact-icon">✉️</div>
+            <div class="contact-icon"><img src="email.png" alt="Email icon"></div>
             <div>
               <div class="contact-label">Email</div>
               <div class="contact-value">dawn.early23@gmail.com</div>
@@ -1285,21 +1305,21 @@
           </a>
           <a href="https://www.facebook.com/ae.don.gementiza" target="_blank" rel="noopener noreferrer"
             class="contact-item">
-            <div class="contact-icon">🔗</div>
+            <div class="contact-icon"><img src="facebook.png" alt="Facebook icon"></div>
             <div>
               <div class="contact-label">Facebook</div>
               <div class="contact-value">ae.don.gementiza</div>
             </div>
           </a>
           <a href="https://github.com/Dawnzkie1" target="_blank" rel="noopener noreferrer" class="contact-item">
-            <div class="contact-icon">🐙</div>
+            <div class="contact-icon"><img src="github.png" alt="GitHub icon"></div>
             <div>
               <div class="contact-label">GitHub</div>
               <div class="contact-value">Dawnzkie1</div>
             </div>
           </a>
           <div class="contact-item">
-            <div class="contact-icon">📍</div>
+            <div class="contact-icon"><img src="location.png" alt="Location icon"></div>
             <div>
               <div class="contact-label">Location</div>
               <div class="contact-value">Panabo City, Philippines</div>
@@ -1309,6 +1329,8 @@
       </div>
       <form class="contact-form" action="mailto:dawn.early23@gmail.com?subject=Portfolio%20Contact%20Message"
         method="POST" enctype="text/plain">
+        <p class="contact-note"></p>
+        <p class="contact-note">Your suggestions and feedbacks will help me to improve.</p>
         <div class="form-group"><label class="form-label" for="contact-name">Name</label><input id="contact-name"
             name="Name" type="text" class="form-input" placeholder="Your name" required /></div>
         <div class="form-group"><label class="form-label" for="contact-email">Email</label><input id="contact-email"
